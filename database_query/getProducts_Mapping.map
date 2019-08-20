@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="default" version="8.0.5.0" xmlns:map="default">
+    <input path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/BlobMessage.xsd" var="var"/>
+    <input path="db:database(/PRODUCTS.dbm,PRODUCTS,db:schema-tables(PRDCTS,PRODUCTS))" var="PRODUCTS"/>
+    <output path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/JsonDomainMsg.xsd" var="var5"/>
+    <output derivedFrom="MB:JSON_schema_in_swagger_document" path="/swagger.json" var="var6"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="out" uri="http://www.ibm.com/iib/msl/json"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="getProducts_Mapping">
+        <input derivedFrom="MB:JSON_operation_name:getProducts" path="$var/mb:msg(BLOB,assembly,BLOB,Properties,LocalEnvironment)" var="ComIbmMessageAssembly_BLOB"/>
+        <input path="$PRODUCTS/db:select(fn:false(),ResultSet(PRDCTS/PRODUCTS/LAST_UPDATED,PRDCTS/PRODUCTS/PART_NUMBER,PRDCTS/PRODUCTS/PRODUCT_NAME,PRDCTS/PRODUCTS/QUANTITY,PRDCTS/PRODUCTS/DESCRIPTION),db:where('1=1'))" var="dbselect"/>
+        <output namespace="http://www.ibm.com/iib/msl/json" path="$var5/mb:msg(JSON,assembly,JSON,Properties)" var="MessageAssembly1">
+            <cast derivedFrom="MB:JSON_operation_response" path="$MessageAssembly1/JSON/Data/type('anyType')" qualifier="{http://www.ibm.com/iib/msl/json}JSONArray_product_table" ref="var6"/>
+        </output>
+        <task type="info">
+            <documentation description="The REST API input data of operation getProducts.">This Task is provided to show the location of the REST API input data of operation getProducts.
+The path and query parameters are provided under "Parameters".
+You may need to use these as inputs to your mappings.</documentation>
+            <input path="$ComIbmMessageAssembly_BLOB/LocalEnvironment/REST/Input"/>
+        </task>
+        <move>
+            <input path="$ComIbmMessageAssembly_BLOB/Properties"/>
+            <output path="$MessageAssembly1/Properties"/>
+        </move>
+        <select ref="dbselect">
+            <input path="$dbselect/ResultSet"/>
+            <output path="$MessageAssembly1/JSON/spath('Data',2)"/>
+            <foreach>
+                <input path="."/>
+                <output path="Item"/>
+                <move automap="true">
+                    <input path="PRDCTS/PRODUCTS/LAST_UPDATED"/>
+                    <output path="last_updated"/>
+                </move>
+                <move automap="true">
+                    <input path="PRDCTS/PRODUCTS/PART_NUMBER"/>
+                    <output path="part_number"/>
+                </move>
+                <move automap="true">
+                    <input path="PRDCTS/PRODUCTS/PRODUCT_NAME"/>
+                    <output path="product_name"/>
+                </move>
+                <move automap="true">
+                    <input path="PRDCTS/PRODUCTS/QUANTITY"/>
+                    <output path="quantity"/>
+                </move>
+                <move automap="true">
+                    <input path="PRDCTS/PRODUCTS/DESCRIPTION"/>
+                    <output path="description"/>
+                </move>
+            </foreach>
+        </select>
+    </mappingDeclaration>
+</mappingRoot>

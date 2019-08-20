@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<policies>
+  <policy policyType="JDBCProviders" policyName="PRODUCTS" policyTemplate="DB2_91">
+    <databaseName>PRODUCTS</databaseName>
+    <databaseType>DB2 Universal Database</databaseType>
+    <databaseVersion>10.0</databaseVersion>
+    <type4DriverClassName>com.ibm.db2.jcc.DB2Driver</type4DriverClassName>
+    <type4DatasourceClassName>com.ibm.db2.jcc.DB2XADataSource</type4DatasourceClassName>
+    <connectionUrlFormat>jdbc:db2://db2-ibm-db2oltp-dev-db2.default.svc.cluster.local:50000/PRODUCTS</connectionUrlFormat>
+    <connectionUrlFormatAttr1></connectionUrlFormatAttr1>
+    <connectionUrlFormatAttr2></connectionUrlFormatAttr2>
+    <connectionUrlFormatAttr3></connectionUrlFormatAttr3>
+    <connectionUrlFormatAttr4></connectionUrlFormatAttr4>
+    <connectionUrlFormatAttr5></connectionUrlFormatAttr5>
+    <serverName>db2-ibm-db2oltp-dev-db2.default.svc.cluster.local</serverName>
+    <portNumber>50000</portNumber>
+    <jarsURL></jarsURL>
+    <databaseSchemaNames>useProvidedSchemaNames</databaseSchemaNames>
+    <description></description>
+    <maxConnectionPoolSize>0</maxConnectionPoolSize>
+    <securityIdentity>db2secret</securityIdentity>
+    <environmentParms></environmentParms>
+    <jdbcProviderXASupport>false</jdbcProviderXASupport>
+    <useDeployedJars>true</useDeployedJars>
+  </policy>
+</policies>

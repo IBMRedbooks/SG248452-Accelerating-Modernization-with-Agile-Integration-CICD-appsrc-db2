@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--xtools2_universal_type_manager-->
+<xmi:XMI xmlns:datamodelversion="http://www.ibm.com/com.ibm.datatools.core/model/data/1.8.0.0" xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DB2Model="http:///com/ibm/db/models/db2/db2.ecore" xmlns:LUW="http:///com/ibm/db/models/db2/luw.ecore" xmlns:SQLAccessControl="http:///org/eclipse/datatools/modelbase/sql/accesscontrol.ecore" xmlns:SQLConstraints="http:///org/eclipse/datatools/modelbase/sql/constraints.ecore" xmlns:SQLDataTypes="http:///org/eclipse/datatools/modelbase/sql/datatypes.ecore">
+  <LUW:LUWDatabase xmi:id="_5f28MLKlEemGCIX30y74PQ" name="PRODUCTS" vendor="DB2 UDB" version="V9.1" schemas="_5gDwgLKlEemGCIX30y74PQ _5gE-orKlEemGCIX30y74PQ" authorizationIds="_5gE-o7KlEemGCIX30y74PQ" federated="true">
+    <eAnnotations xmi:id="_5f28MbKlEemGCIX30y74PQ" source="ConnectionURI">
+      <details xmi:id="_5f28MrKlEemGCIX30y74PQ" key="ConnectionKey" value="PRODUCTS"/>
+    </eAnnotations>
+  </LUW:LUWDatabase>
+  <DB2Model:DB2Schema xmi:id="_5gDwgLKlEemGCIX30y74PQ" name="PRDCTS" tables="_5gDwgbKlEemGCIX30y74PQ" database="_5f28MLKlEemGCIX30y74PQ" owner="_5gE-o7KlEemGCIX30y74PQ"/>
+  <LUW:LUWTable xmi:id="_5gDwgbKlEemGCIX30y74PQ" name="PRODUCTS" schema="_5gDwgLKlEemGCIX30y74PQ" index="_5gE-oLKlEemGCIX30y74PQ" partitionMode=" ">
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_5gDwgrKlEemGCIX30y74PQ" name="LAST_UPDATED" nullable="false">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_5gDwg7KlEemGCIX30y74PQ" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="255"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_5gDwhLKlEemGCIX30y74PQ" name="PART_NUMBER" nullable="false">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_5gDwhbKlEemGCIX30y74PQ" name="INTEGER" primitiveType="INTEGER"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_5gDwhrKlEemGCIX30y74PQ" name="PRODUCT_NAME" nullable="false">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_5gDwh7KlEemGCIX30y74PQ" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="255"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_5gDwiLKlEemGCIX30y74PQ" name="QUANTITY" nullable="false">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_5gDwibKlEemGCIX30y74PQ" name="INTEGER" primitiveType="INTEGER"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_5gDwirKlEemGCIX30y74PQ" name="DESCRIPTION">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_5gDwi7KlEemGCIX30y74PQ" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="255"/>
+    </columns>
+    <constraints xsi:type="SQLConstraints:PrimaryKey" xmi:id="_5gDwjLKlEemGCIX30y74PQ" name="SQL190730090818720" members="_5gDwhLKlEemGCIX30y74PQ"/>
+  </LUW:LUWTable>
+  <LUW:LUWIndex xmi:id="_5gE-oLKlEemGCIX30y74PQ" name="SQL190730090818570" Schema="_5gE-orKlEemGCIX30y74PQ" fillFactor="10" unique="true" systemGenerated="true" table="_5gDwgbKlEemGCIX30y74PQ" systemRequired="true">
+    <members xmi:id="_5gE-obKlEemGCIX30y74PQ" column="_5gDwhLKlEemGCIX30y74PQ"/>
+  </LUW:LUWIndex>
+  <DB2Model:DB2Schema xmi:id="_5gE-orKlEemGCIX30y74PQ" name="SYSIBM" indices="_5gE-oLKlEemGCIX30y74PQ" database="_5f28MLKlEemGCIX30y74PQ"/>
+  <SQLAccessControl:User xmi:id="_5gE-o7KlEemGCIX30y74PQ" name="DB2INST1" description="" ownedSchema="_5gDwgLKlEemGCIX30y74PQ" Database="_5f28MLKlEemGCIX30y74PQ"/>
+</xmi:XMI>
